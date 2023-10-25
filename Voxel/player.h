@@ -29,6 +29,8 @@ public:
 			MoveDown(delta_time);
 		if (keys[GLFW_KEY_SPACE])
 			MoveUp(delta_time);
+		if (keys[GLFW_KEY_C])
+			reset_camera();
 		
 	}
 

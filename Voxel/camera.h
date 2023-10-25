@@ -11,7 +11,9 @@ class Camera
 public:
 	glm::vec3 camera_up;
 	glm::vec3 camera_target;
+	glm::vec3 default_camera_target;
 	glm::vec3 camera_pos;
+	glm::vec3 default_camera_pos;
 	glm::vec3 camera_dir;
 	glm::vec3 camera_x;
 	glm::vec3 camera_y;
@@ -20,7 +22,8 @@ public:
 
 public:
 	Camera()
-		:camera_pos({0.0,0.0,0.0f}),
+		:camera_pos({ 0.0,0.0,0.0f }),
+		default_camera_pos({0.0,0.0,0.0f}),
 		camera_dir({0.0f}),
 		camera_x({0.0f}),
 		camera_y({0}),
@@ -32,6 +35,8 @@ public:
 		cam_speed = speed;
 		camera_pos = pos;
 		camera_target = glm::vec3(0.0f, 0.0f, -1.0f);
+		default_camera_pos = camera_pos;
+		default_camera_target = camera_target;
 		camera_up = glm::vec3(0.0f,1.0f,0.0f);
 		update_pos();
 		
@@ -43,7 +48,11 @@ public:
 		camera_x = glm::normalize(glm::cross(camera_up, camera_dir));
 		camera_y = glm::cross(camera_dir, camera_x);
 	}
-
+	void reset_camera()
+	{
+		camera_pos = default_camera_pos;
+		camera_target = default_camera_target;
+	}
 	glm::mat4 Get_view_mat4()
 	{
 		return glm::lookAt(camera_pos,camera_pos+camera_target,camera_up);
