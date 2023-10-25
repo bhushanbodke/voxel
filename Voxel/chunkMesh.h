@@ -76,7 +76,7 @@
 				{
 					for (float z = 0; z < Settings::chunk_size; z++)
 					{
-						//front face 
+						//front face
 						if (should_render_face(x, y, z + halfSize))
 						{
 							vertices.push_back({ x - halfSize ,y - halfSize , -(z - halfSize) ,0.0f,0.0f,voxel_id , face_id });
@@ -166,7 +166,7 @@
 			shader.set_uniform_int("chunk_size", Settings::chunk_size);
 			glBindVertexArray(vao);
 			glDrawArrays(GL_TRIANGLES, 0, vertices.size());
-			std::cout << "\r" << vertices.size();
+			std::cout << "\r" <<"faces rendered" << face_id;
 			glBindVertexArray(0);
 		};
 

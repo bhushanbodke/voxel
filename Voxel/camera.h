@@ -60,7 +60,7 @@ public:
 
 	glm::mat4 get_projection()
 	{
-		return glm::perspective(glm::radians(Settings::FOV), Settings::aspect_ratio, 0.1f, 100.0f);
+		return glm::perspective(glm::radians(Settings::FOV), Settings::aspect_ratio, 0.1f, 1000.0f);
 	}
 	void MoveForword(float deltatime)
 	{
