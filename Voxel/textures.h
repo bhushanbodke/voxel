@@ -22,7 +22,7 @@ public:
 	bool load_texture(std::string file_path)
 	{
 		int width, height, bpp;
-		stbi_set_flip_vertically_on_load(0);
+		stbi_set_flip_vertically_on_load(1);
 		texture_data = stbi_load(file_path.c_str(), &width, &height, &bpp, 4);
 
 		if (texture_data)

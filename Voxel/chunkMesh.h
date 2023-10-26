@@ -52,18 +52,18 @@
 		}
 		//return true if we should add vertex data of face to the vertex array
 
-		bool should_render_face(int x, int y, int z)
+		bool should_render_face(int x1, int y1, int z1)
 		{
-			if (0 <= x && x < Settings::chunk_size 
-				&& 0 <= y && y < Settings::chunk_size 
-				&& 0 <= z && z < Settings::chunk_size)
+			if (0 <= x1 && x1 < Settings::chunk_size 
+				&& 0 <= y1 && y1 < Settings::chunk_size 
+				&& 0 <= z1 && z1 < Settings::chunk_size)
 			{
-				if (chunk.chunk_data[x][y][z] != 0)
+				if (chunk.chunk_data[x1][y1][z1] != nothing )
 				{
-					return true;
+					return false;
 				}
 			}
-			return false;
+			return true;
 		};
 
 		void get_vertex_data()
@@ -76,78 +76,85 @@
 				{
 					for (float z = 0; z < Settings::chunk_size; z++)
 					{
-						//front face
-						if (should_render_face(x, y, z + halfSize))
+						// Front face
+						if (chunk.chunk_data[x][y][z] ==  nothing)
+							continue;
+						//front
+						if (should_render_face(x, y, z - 1))
 						{
-							vertices.push_back({ x - halfSize ,y - halfSize , -(z - halfSize) ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize ,y - halfSize , -(z - halfSize) ,1.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize ,y + halfSize , -(z - halfSize) ,1.0f,1.0f,voxel_id , face_id });
-																				 
-							vertices.push_back({ x - halfSize            ,y - halfSize           , -(z - halfSize) ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize ,y + halfSize , -(z - halfSize) ,1.0f,1.0f,voxel_id , face_id });
-							vertices.push_back({ x - halfSize            ,y + halfSize , -(z - halfSize) ,0.0f,0.0f,voxel_id , face_id });
+							vertices.push_back({ x - halfSize, y - halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y - halfSize, (z - halfSize), 1.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z - halfSize), 1.0f, 1.0f, voxel_id, face_id });
+
+							vertices.push_back({ x - halfSize, y - halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z - halfSize), 1.0f, 1.0f, voxel_id, face_id });
+							vertices.push_back({ x - halfSize, y + halfSize, (z - halfSize), 0.0f, 1.0f, voxel_id, face_id });
 							face_id++;
 						}
-						//back face
-						if (should_render_face(x, y, z - halfSize))
+
+						// Back face
+						if (should_render_face(x, y, z + 1))
 						{
-							vertices.push_back({ x - halfSize		  ,y- halfSize,-(z+halfSize) ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize ,y- halfSize  ,-(z+halfSize) ,1.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize ,y + halfSize ,-(z+halfSize) ,1.0f,1.0f,voxel_id , face_id });
+							vertices.push_back({ x - halfSize, y - halfSize, (z + halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y - halfSize, (z + halfSize), 1.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
 
-							vertices.push_back({ x - halfSize		  ,y - halfSize			,-(z + halfSize) ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize ,y + halfSize ,-(z + halfSize) ,1.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x - halfSize		  ,y + halfSize ,-(z+halfSize) ,0.0f,1.0f,voxel_id , face_id });
-							face_id++;
-
-						}
-						//right face 
-						if (should_render_face(x + halfSize,y,z))
-						{
-							vertices.push_back({ x + halfSize   ,y - halfSize  ,-(z - halfSize)	    ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize   ,y - halfSize  ,-(z+halfSize),1.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize   ,y + halfSize ,-(z+halfSize),1.0f,1.0f,voxel_id , face_id });
-							
-							vertices.push_back({ x + halfSize   ,y - halfSize ,-(z - halfSize) ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize   ,y + halfSize ,-(z + halfSize) ,1.0f,1.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize   ,y + halfSize ,-(z - halfSize) 		   ,0.0f,1.0f,voxel_id , face_id });
-							face_id++;
-
-						}
-						//left face
-						if (should_render_face(x - halfSize, y, z))
-						{
-							vertices.push_back({ x- halfSize ,y- halfSize  ,-(z - halfSize)	            ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x- halfSize ,y- halfSize  ,-(z + halfSize)	,1.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x- halfSize ,y + halfSize ,-(z + halfSize)	,1.0f,1.0f,voxel_id , face_id });
-
-							vertices.push_back({ x- halfSize ,y - halfSize		  ,-(z - halfSize)	            ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x- halfSize ,y + halfSize ,-(z + halfSize)	,1.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x- halfSize ,y + halfSize ,-(z - halfSize) 	        ,0.0f,1.0f,voxel_id , face_id });
+							vertices.push_back({ x - halfSize, y - halfSize, (z + halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
+							vertices.push_back({ x - halfSize, y + halfSize, (z + halfSize), 0.0f, 1.0f, voxel_id, face_id });
 							face_id++;
 						}
-						//top face
-						if (should_render_face(x, y + halfSize, z))
+
+						// Right face
+						if (should_render_face(x + 1, y, z))
 						{
-							vertices.push_back({ x - halfSize           ,y + halfSize ,-(z - halfSize)	         ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x+halfSize   ,y + halfSize ,-(z - halfSize)		     ,1.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x+halfSize   ,y + halfSize ,-(z + halfSize) ,1.0f,1.0f,voxel_id , face_id });
-							
-							vertices.push_back({ x - halfSize           ,y + halfSize ,-(z - halfSize)	         ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize ,y + halfSize ,-(z + halfSize) ,0.0f,1.0f,voxel_id , face_id });
-							vertices.push_back({ x - halfSize		      ,y + halfSize ,-(z + halfSize) ,0.0f,1.0f,voxel_id , face_id });
+							vertices.push_back({ x + halfSize, y - halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y - halfSize, (z + halfSize), 1.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
+
+							vertices.push_back({ x + halfSize, y - halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z - halfSize), 0.0f, 1.0f, voxel_id, face_id });
 							face_id++;
 						}
-						//bottom face 
-						if (should_render_face(x, y - halfSize, z))
-						{
-							vertices.push_back({ x - halfSize           ,y - halfSize    ,-(z- halfSize)	         ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x+halfSize   ,y - halfSize    ,-(z- halfSize)		     ,1.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x+halfSize   ,y - halfSize    ,-(z + halfSize),1.0f,1.0f,voxel_id , face_id });
 
-							vertices.push_back({ x - halfSize           ,y - halfSize    ,-(z - halfSize)	          ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x + halfSize ,y - halfSize    ,-(z + halfSize) ,0.0f,0.0f,voxel_id , face_id });
-							vertices.push_back({ x - halfSize          ,y - halfSize    ,-(z + halfSize) ,0.0f,1.0f,voxel_id , face_id });
+
+						// Left face
+						if (should_render_face(x - 1, y, z))
+						{
+							vertices.push_back({ x - halfSize, y - halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x - halfSize, y - halfSize, (z + halfSize), 1.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x - halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
+
+							vertices.push_back({ x - halfSize, y - halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x - halfSize, y + halfSize, (z - halfSize), 0.0f, 1.0f, voxel_id, face_id });
+							vertices.push_back({ x - halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
+							face_id++;
+						}
+
+						// Top face
+						if (should_render_face(x, y + 1, z))
+						{
+							vertices.push_back({ x - halfSize, y + halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z - halfSize), 1.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
+
+							vertices.push_back({ x - halfSize, y + halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
+							vertices.push_back({ x - halfSize, y + halfSize, (z + halfSize), 0.0f, 1.0f, voxel_id, face_id });
+							face_id++;
+						}
+
+						// Bottom face
+						if (should_render_face(x, y - 1, z))
+						{
+							vertices.push_back({ x - halfSize, y - halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y - halfSize, (z - halfSize), 1.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y - halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
+
+							vertices.push_back({ x - halfSize, y - halfSize, (z - halfSize), 0.0f, 0.0f, voxel_id, face_id });
+							vertices.push_back({ x + halfSize, y - halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id });
+							vertices.push_back({ x - halfSize, y - halfSize, (z + halfSize), 0.0f, 1.0f, voxel_id, face_id });
 							face_id++;
 						}
 						voxel_id++;
@@ -166,7 +173,6 @@
 			shader.set_uniform_int("chunk_size", Settings::chunk_size);
 			glBindVertexArray(vao);
 			glDrawArrays(GL_TRIANGLES, 0, vertices.size());
-			std::cout << "\r" <<"faces rendered" << face_id;
 			glBindVertexArray(0);
 		};
 

@@ -15,5 +15,5 @@ void main()
     float colorValue = float(face_id) / float(chunk_size * chunk_size * chunk_size *6);
     
     // Use colorValue to set the color for the fragment
-    FragColor = vec4(colorValue, 1.0f - colorValue,(1 - colorValue)/colorValue ,1.0f);
+    FragColor =  texture(Texture0,text_co);
 }

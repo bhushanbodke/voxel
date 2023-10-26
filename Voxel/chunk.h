@@ -1,9 +1,10 @@
 #pragma once
 #include <vector>
+#include "glm/gtc/noise.hpp"
 
 enum block_types
 {
-	nothing,
+	nothing = 1,
 	dirt,
 };
 
@@ -22,7 +23,7 @@ public:
 			{
 				for (int z = 0; z < Settings::chunk_size; z++)
 				{
-					chunk_data[x][y][z] = dirt;
+					chunk_data[x][y][z] = dirt; /*glm::simplex(glm::vec3(x,y,z)) < 0.5 ? dirt : nothing;*/
 				}
 			}
 		};
