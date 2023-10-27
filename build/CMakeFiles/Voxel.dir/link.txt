@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/Voxel.dir/src/Settings.cpp.o CMakeFiles/Voxel.dir/src/main.cpp.o CMakeFiles/Voxel.dir/src/mouse.cpp.o CMakeFiles/Voxel.dir/src/stbi.cpp.o CMakeFiles/Voxel.dir/src/glad.c.o -o Voxel  /usr/lib/x86_64-linux-gnu/libglfw.so.3.3 

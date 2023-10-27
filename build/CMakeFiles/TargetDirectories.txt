@@ -1,0 +1,3 @@
+/home/bhushan/Desktop/voxel/build/CMakeFiles/Voxel.dir
+/home/bhushan/Desktop/voxel/build/CMakeFiles/edit_cache.dir
+/home/bhushan/Desktop/voxel/build/CMakeFiles/rebuild_cache.dir

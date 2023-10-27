@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/bhushan/Desktop/voxel/build",
+  "command": "/usr/bin/g++  -I/home/bhushan/Desktop/voxel/include -g -o CMakeFiles/Voxel.dir/src/Settings.cpp.o -c /home/bhushan/Desktop/voxel/src/Settings.cpp",
+  "file": "/home/bhushan/Desktop/voxel/src/Settings.cpp"
+},
+{
+  "directory": "/home/bhushan/Desktop/voxel/build",
+  "command": "/usr/bin/g++  -I/home/bhushan/Desktop/voxel/include -g -o CMakeFiles/Voxel.dir/src/main.cpp.o -c /home/bhushan/Desktop/voxel/src/main.cpp",
+  "file": "/home/bhushan/Desktop/voxel/src/main.cpp"
+},
+{
+  "directory": "/home/bhushan/Desktop/voxel/build",
+  "command": "/usr/bin/g++  -I/home/bhushan/Desktop/voxel/include -g -o CMakeFiles/Voxel.dir/src/mouse.cpp.o -c /home/bhushan/Desktop/voxel/src/mouse.cpp",
+  "file": "/home/bhushan/Desktop/voxel/src/mouse.cpp"
+},
+{
+  "directory": "/home/bhushan/Desktop/voxel/build",
+  "command": "/usr/bin/g++  -I/home/bhushan/Desktop/voxel/include -g -o CMakeFiles/Voxel.dir/src/stbi.cpp.o -c /home/bhushan/Desktop/voxel/src/stbi.cpp",
+  "file": "/home/bhushan/Desktop/voxel/src/stbi.cpp"
+},
+{
+  "directory": "/home/bhushan/Desktop/voxel/build",
+  "command": "/usr/bin/gcc  -I/home/bhushan/Desktop/voxel/include -g -o CMakeFiles/Voxel.dir/src/glad.c.o -c /home/bhushan/Desktop/voxel/src/glad.c",
+  "file": "/home/bhushan/Desktop/voxel/src/glad.c"
+}
+]
