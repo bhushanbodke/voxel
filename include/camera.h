@@ -19,16 +19,14 @@ public:
 	glm::vec3 camera_y;
 	float cam_speed;
 
-
 public:
 	Camera()
-		:camera_pos({ 0.0,0.0,0.0f }),
-		default_camera_pos({0.0,0.0,0.0f}),
-		camera_dir({0.0f}),
-		camera_x({0.0f}),
-		camera_y({0}),
-		cam_speed(0)
-	{};
+		: camera_pos({0.0, 0.0, 0.0f}),
+		  default_camera_pos({0.0, 0.0, 0.0f}),
+		  camera_dir({0.0f}),
+		  camera_x({0.0f}),
+		  camera_y({0}),
+		  cam_speed(0){};
 
 	void Init(glm::vec3 pos, float speed)
 	{
@@ -37,9 +35,8 @@ public:
 		camera_target = glm::vec3(0.0f, 0.0f, -1.0f);
 		default_camera_pos = camera_pos;
 		default_camera_target = camera_target;
-		camera_up = glm::vec3(0.0f,1.0f,0.0f);
+		camera_up = glm::vec3(0.0f, 1.0f, 0.0f);
 		update_pos();
-		
 	};
 
 	void update_pos()
@@ -55,7 +52,7 @@ public:
 	}
 	glm::mat4 Get_view_mat4()
 	{
-		return glm::lookAt(camera_pos,camera_pos+camera_target,camera_up);
+		return glm::lookAt(camera_pos, camera_pos + camera_target, camera_up);
 	};
 
 	glm::mat4 get_projection()
@@ -93,7 +90,5 @@ public:
 		float dy = Mouse::Get_dy();
 		camera_target = glm::mat3(glm::rotate(glm::radians(dx) * Settings::camera_sensitivity, camera_up)) * camera_target;
 		camera_target = glm::mat3(glm::rotate(glm::radians(-dy) * Settings::camera_sensitivity, glm::cross(camera_up, camera_dir))) * camera_target;
-		
 	}
-
 };

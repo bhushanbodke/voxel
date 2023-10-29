@@ -5,16 +5,15 @@
 #include <iostream>
 #include "Keyboard.h"
 
-
 class Window
 {
 
 public:
-	GLFWwindow* window;
+	GLFWwindow *window;
 
 public:
 	Window()
-		:window(nullptr)
+		: window(nullptr)
 	{
 		glfwInit();
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -36,7 +35,7 @@ public:
 		gladLoadGL();
 		glViewport(0, 0, width, height);
 		glEnable(GL_DEPTH_TEST);
-		glfwSetInputMode(window,GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		glfwSwapInterval(1);
 		return true;
 	};
@@ -57,6 +56,3 @@ public:
 		return true;
 	}
 };
-
-
-

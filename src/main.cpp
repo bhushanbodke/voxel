@@ -1,4 +1,4 @@
-#include<vector>
+#include <vector>
 #include "glm/glm.hpp"
 #include "Window.h"
 #include "Cube.h"
@@ -16,12 +16,14 @@ public:
 	Scene scene;
 	float delta_time;
 	float last_frame;
+
 public:
 	VoxelEngine()
 	{
 		window.CreateWindow(Settings::width, Settings::height, "Voxel");
 		glfwSetKeyCallback(window.window, Keyboard::key_callback);
 		glfwSetCursorPosCallback(window.window, Mouse::curser_keycallback);
+		std::cout << "created window\n";
 		scene.Init();
 	}
 
@@ -35,10 +37,12 @@ public:
 	bool Run()
 	{
 		last_frame = glfwGetTime();
+		std::cout << "[+] No of chunks in world : " << Settings::no_chunk << std::endl;
+		std::cout << "[+] No of voxels : " << Settings::no_voxels << std::endl;
 		while (!window.ShouldClose())
 		{
 			set_deltatime();
-			glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			glClearColor(1.0, 1.0, 1.0, 1.0);
 			scene.render(delta_time);
 			window.PollEvents();
@@ -47,8 +51,6 @@ public:
 		return true;
 	}
 };
-
-
 
 int main()
 {

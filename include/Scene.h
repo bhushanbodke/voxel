@@ -4,10 +4,12 @@
 #include "ShaderClass.h"
 #include "player.h"
 #include <unordered_map>
+#include "World.h"
 
 class Scene
 {
 public:
+	World world;
 	Chunk chunk;
 	Cube cube;
 	Shader shader;
@@ -16,9 +18,13 @@ public:
 
 	void Init()
 	{
-		chunk.build_voxels();
+		world.build_world();
 		shader.SetShader("default");
-		player.Init({0.0, 0.0, 50.0f}, 5.0f);
+		glm::vec3 world_center;
+		world_center.x = Settings::world_width * Settings::chunk_size / 2;
+		world_center.y = Settings::world_height * Settings::chunk_size / 2;
+		world_center.z = Settings::world_depth * Settings::chunk_size / 2;
+		player.Init(world_center, 5.0f);
 		cube_border.load_texture("assets/frame.png");
 	}
 
@@ -26,7 +32,7 @@ public:
 	{
 		cube_border.bind_texture();
 		shader.set_texture_uniform(cube_border);
-		chunk.render(shader, player);
+		world.render(shader, player);
 		player.update(delta_time);
 	}
 };

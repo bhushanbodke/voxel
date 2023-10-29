@@ -73,71 +73,71 @@ CMakeFiles/Voxel.dir/src/Settings.cpp.o: CMakeFiles/Voxel.dir/flags.make
 CMakeFiles/Voxel.dir/src/Settings.cpp.o: /home/bhushan/Desktop/voxel/src/Settings.cpp
 CMakeFiles/Voxel.dir/src/Settings.cpp.o: CMakeFiles/Voxel.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhushan/Desktop/voxel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Voxel.dir/src/Settings.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/Settings.cpp.o -MF CMakeFiles/Voxel.dir/src/Settings.cpp.o.d -o CMakeFiles/Voxel.dir/src/Settings.cpp.o -c /home/bhushan/Desktop/voxel/src/Settings.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/Settings.cpp.o -MF CMakeFiles/Voxel.dir/src/Settings.cpp.o.d -o CMakeFiles/Voxel.dir/src/Settings.cpp.o -c /home/bhushan/Desktop/voxel/src/Settings.cpp
 
 CMakeFiles/Voxel.dir/src/Settings.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Voxel.dir/src/Settings.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhushan/Desktop/voxel/src/Settings.cpp > CMakeFiles/Voxel.dir/src/Settings.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhushan/Desktop/voxel/src/Settings.cpp > CMakeFiles/Voxel.dir/src/Settings.cpp.i
 
 CMakeFiles/Voxel.dir/src/Settings.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Voxel.dir/src/Settings.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhushan/Desktop/voxel/src/Settings.cpp -o CMakeFiles/Voxel.dir/src/Settings.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhushan/Desktop/voxel/src/Settings.cpp -o CMakeFiles/Voxel.dir/src/Settings.cpp.s
 
 CMakeFiles/Voxel.dir/src/main.cpp.o: CMakeFiles/Voxel.dir/flags.make
 CMakeFiles/Voxel.dir/src/main.cpp.o: /home/bhushan/Desktop/voxel/src/main.cpp
 CMakeFiles/Voxel.dir/src/main.cpp.o: CMakeFiles/Voxel.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhushan/Desktop/voxel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Voxel.dir/src/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/main.cpp.o -MF CMakeFiles/Voxel.dir/src/main.cpp.o.d -o CMakeFiles/Voxel.dir/src/main.cpp.o -c /home/bhushan/Desktop/voxel/src/main.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/main.cpp.o -MF CMakeFiles/Voxel.dir/src/main.cpp.o.d -o CMakeFiles/Voxel.dir/src/main.cpp.o -c /home/bhushan/Desktop/voxel/src/main.cpp
 
 CMakeFiles/Voxel.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Voxel.dir/src/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhushan/Desktop/voxel/src/main.cpp > CMakeFiles/Voxel.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhushan/Desktop/voxel/src/main.cpp > CMakeFiles/Voxel.dir/src/main.cpp.i
 
 CMakeFiles/Voxel.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Voxel.dir/src/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhushan/Desktop/voxel/src/main.cpp -o CMakeFiles/Voxel.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhushan/Desktop/voxel/src/main.cpp -o CMakeFiles/Voxel.dir/src/main.cpp.s
 
 CMakeFiles/Voxel.dir/src/mouse.cpp.o: CMakeFiles/Voxel.dir/flags.make
 CMakeFiles/Voxel.dir/src/mouse.cpp.o: /home/bhushan/Desktop/voxel/src/mouse.cpp
 CMakeFiles/Voxel.dir/src/mouse.cpp.o: CMakeFiles/Voxel.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhushan/Desktop/voxel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Voxel.dir/src/mouse.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/mouse.cpp.o -MF CMakeFiles/Voxel.dir/src/mouse.cpp.o.d -o CMakeFiles/Voxel.dir/src/mouse.cpp.o -c /home/bhushan/Desktop/voxel/src/mouse.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/mouse.cpp.o -MF CMakeFiles/Voxel.dir/src/mouse.cpp.o.d -o CMakeFiles/Voxel.dir/src/mouse.cpp.o -c /home/bhushan/Desktop/voxel/src/mouse.cpp
 
 CMakeFiles/Voxel.dir/src/mouse.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Voxel.dir/src/mouse.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhushan/Desktop/voxel/src/mouse.cpp > CMakeFiles/Voxel.dir/src/mouse.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhushan/Desktop/voxel/src/mouse.cpp > CMakeFiles/Voxel.dir/src/mouse.cpp.i
 
 CMakeFiles/Voxel.dir/src/mouse.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Voxel.dir/src/mouse.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhushan/Desktop/voxel/src/mouse.cpp -o CMakeFiles/Voxel.dir/src/mouse.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhushan/Desktop/voxel/src/mouse.cpp -o CMakeFiles/Voxel.dir/src/mouse.cpp.s
 
 CMakeFiles/Voxel.dir/src/stbi.cpp.o: CMakeFiles/Voxel.dir/flags.make
 CMakeFiles/Voxel.dir/src/stbi.cpp.o: /home/bhushan/Desktop/voxel/src/stbi.cpp
 CMakeFiles/Voxel.dir/src/stbi.cpp.o: CMakeFiles/Voxel.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhushan/Desktop/voxel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Voxel.dir/src/stbi.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/stbi.cpp.o -MF CMakeFiles/Voxel.dir/src/stbi.cpp.o.d -o CMakeFiles/Voxel.dir/src/stbi.cpp.o -c /home/bhushan/Desktop/voxel/src/stbi.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/stbi.cpp.o -MF CMakeFiles/Voxel.dir/src/stbi.cpp.o.d -o CMakeFiles/Voxel.dir/src/stbi.cpp.o -c /home/bhushan/Desktop/voxel/src/stbi.cpp
 
 CMakeFiles/Voxel.dir/src/stbi.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Voxel.dir/src/stbi.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhushan/Desktop/voxel/src/stbi.cpp > CMakeFiles/Voxel.dir/src/stbi.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bhushan/Desktop/voxel/src/stbi.cpp > CMakeFiles/Voxel.dir/src/stbi.cpp.i
 
 CMakeFiles/Voxel.dir/src/stbi.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Voxel.dir/src/stbi.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhushan/Desktop/voxel/src/stbi.cpp -o CMakeFiles/Voxel.dir/src/stbi.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bhushan/Desktop/voxel/src/stbi.cpp -o CMakeFiles/Voxel.dir/src/stbi.cpp.s
 
 CMakeFiles/Voxel.dir/src/glad.c.o: CMakeFiles/Voxel.dir/flags.make
 CMakeFiles/Voxel.dir/src/glad.c.o: /home/bhushan/Desktop/voxel/src/glad.c
 CMakeFiles/Voxel.dir/src/glad.c.o: CMakeFiles/Voxel.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bhushan/Desktop/voxel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Voxel.dir/src/glad.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/glad.c.o -MF CMakeFiles/Voxel.dir/src/glad.c.o.d -o CMakeFiles/Voxel.dir/src/glad.c.o -c /home/bhushan/Desktop/voxel/src/glad.c
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Voxel.dir/src/glad.c.o -MF CMakeFiles/Voxel.dir/src/glad.c.o.d -o CMakeFiles/Voxel.dir/src/glad.c.o -c /home/bhushan/Desktop/voxel/src/glad.c
 
 CMakeFiles/Voxel.dir/src/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Voxel.dir/src/glad.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bhushan/Desktop/voxel/src/glad.c > CMakeFiles/Voxel.dir/src/glad.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/bhushan/Desktop/voxel/src/glad.c > CMakeFiles/Voxel.dir/src/glad.c.i
 
 CMakeFiles/Voxel.dir/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Voxel.dir/src/glad.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bhushan/Desktop/voxel/src/glad.c -o CMakeFiles/Voxel.dir/src/glad.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/bhushan/Desktop/voxel/src/glad.c -o CMakeFiles/Voxel.dir/src/glad.c.s
 
 # Object files for target Voxel
 Voxel_OBJECTS = \

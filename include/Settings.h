@@ -11,4 +11,8 @@ namespace Settings
 	extern int world_width;
 	extern int world_height;
 	extern int world_depth;
+	extern int chunk_id;
+
+	extern int no_voxels;
+	extern int no_chunk;
 };
