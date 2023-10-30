@@ -36,7 +36,7 @@ public:
 	std::vector<unsigned int> indices;
 	unsigned int vao, vbo, ebo;
 	float voxel_id, face_id;
-	int index = 0;
+	int vert_index = 0;
 
 public:
 	Chunk(glm::vec3 pos = {0.0f, 0.0f, 0.0f})
@@ -112,13 +112,18 @@ public:
 
 	int push_back(Vertex v)
 	{
-		vertices.push_back(v);
-		return index++;
+		vertices[vert_index] = v;
+		return vert_index++;
 	}
 
 	void get_vertex_data()
 	{
-		voxel_id, face_id = 0.0f;
+		vertices.resize(Settings::chunk_vol * 24);
+		indices.resize(Settings::chunk_vol * 36);
+
+		voxel_id = 0.0f;
+		face_id = 0.0f;
+		int indices_ind = 0;
 		float halfSize = 0.5f;
 		for (float x = 0; x < Settings::chunk_size; x++)
 		{
@@ -139,7 +144,8 @@ public:
 						unsigned int v3 = push_back({x + halfSize, y + halfSize, (z - halfSize), 1.0f, 1.0f, voxel_id, face_id});
 						unsigned int v4 = push_back({x - halfSize, y + halfSize, (z - halfSize), 0.0f, 1.0f, voxel_id, face_id});
 
-						indices.insert(indices.end(), {v1, v2, v3, v1, v3, v4});
+						indices.insert(indices.begin() + indices_ind, {v1, v2, v3, v1, v3, v4});
+						indices_ind += 6;
 					}
 
 					// Back face
@@ -149,7 +155,9 @@ public:
 						unsigned int v2 = push_back({x + halfSize, y - halfSize, (z + halfSize), 1.0f, 0.0f, voxel_id, face_id});
 						unsigned int v3 = push_back({x + halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id});
 						unsigned int v4 = push_back({x - halfSize, y + halfSize, (z + halfSize), 0.0f, 1.0f, voxel_id, face_id});
-						indices.insert(indices.end(), {v1, v2, v3, v1, v3, v4});
+
+						indices.insert(indices.begin() + indices_ind, {v1, v2, v3, v1, v3, v4});
+						indices_ind += 6;
 					}
 
 					// Right face
@@ -159,7 +167,8 @@ public:
 						unsigned int v2 = push_back({x + halfSize, y - halfSize, (z + halfSize), 1.0f, 0.0f, voxel_id, face_id});
 						unsigned int v3 = push_back({x + halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id});
 						unsigned int v4 = push_back({x + halfSize, y + halfSize, (z - halfSize), 0.0f, 1.0f, voxel_id, face_id});
-						indices.insert(indices.end(), {v1, v2, v3, v1, v3, v4});
+						indices.insert(indices.begin() + indices_ind, {v1, v2, v3, v1, v3, v4});
+						indices_ind += 6;
 					}
 
 					// Left face
@@ -170,7 +179,8 @@ public:
 						unsigned int v3 = push_back({x - halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id});
 						unsigned int v4 = push_back({x - halfSize, y + halfSize, (z - halfSize), 1.0f, 1.0f, voxel_id, face_id});
 
-						indices.insert(indices.end(), {v1, v2, v3, v1, v3, v4});
+						indices.insert(indices.begin() + indices_ind, {v1, v2, v3, v1, v3, v4});
+						indices_ind += 6;
 					}
 
 					// Top face
@@ -180,7 +190,8 @@ public:
 						unsigned int v2 = push_back({x + halfSize, y + halfSize, (z - halfSize), 1.0f, 0.0f, voxel_id, face_id});
 						unsigned int v3 = push_back({x + halfSize, y + halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id});
 						unsigned int v4 = push_back({x - halfSize, y + halfSize, (z + halfSize), 0.0f, 1.0f, voxel_id, face_id});
-						indices.insert(indices.end(), {v1, v2, v3, v1, v3, v4});
+						indices.insert(indices.begin() + indices_ind, {v1, v2, v3, v1, v3, v4});
+						indices_ind += 6;
 					}
 
 					// Bottom face
@@ -190,11 +201,14 @@ public:
 						unsigned int v2 = push_back({x + halfSize, y - halfSize, (z - halfSize), 1.0f, 0.0f, voxel_id, face_id});
 						unsigned int v3 = push_back({x + halfSize, y - halfSize, (z + halfSize), 1.0f, 1.0f, voxel_id, face_id});
 						unsigned int v4 = push_back({x - halfSize, y - halfSize, (z + halfSize), 0.0f, 1.0f, voxel_id, face_id});
-						indices.insert(indices.end(), {v1, v2, v3, v1, v3, v4});
+						indices.insert(indices.begin() + indices_ind, {v1, v2, v3, v1, v3, v4});
+						indices_ind += 6;
 					}
 				}
 			}
 		}
+		vertices.shrink_to_fit();
+		indices.shrink_to_fit();
 	}
 
 	void render(Shader &shader, Player &player)

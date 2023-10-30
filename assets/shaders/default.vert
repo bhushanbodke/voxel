@@ -18,7 +18,7 @@ vec3 hash(float p )
 
 void main()
 {
-   color  = hash(Face_Id);
+   color  = hash(Voxel_id);
    text_co = texture_co;
    gl_Position = MVP *  vec4(aPos, 1.0);
 };

@@ -8,6 +8,8 @@ namespace Settings
 	extern float FOV;
 	extern float camera_sensitivity;
 	extern int chunk_size;
+	extern int chunk_vol;
+
 	extern int world_width;
 	extern int world_height;
 	extern int world_depth;

@@ -7,11 +7,11 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/bhushan/Desktop/voxel/include
 
-C_FLAGS = -g
+C_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
 CXX_INCLUDES = -I/home/bhushan/Desktop/voxel/include
 
-CXX_FLAGS = -g
+CXX_FLAGS = -O3 -DNDEBUG
 

@@ -35,7 +35,7 @@ public:
 		gladLoadGL();
 		glViewport(0, 0, width, height);
 		glEnable(GL_DEPTH_TEST);
-		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		// glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 		glfwSwapInterval(1);
 		return true;
 	};
