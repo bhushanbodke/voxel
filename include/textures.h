@@ -4,20 +4,19 @@
 #include "stb/stb_image.h"
 #include <iostream>
 
-static int slot_no = 0; 
+static int slot_no = 0;
 
 class Texture
 {
 
 public:
 	unsigned int textureID;
-	
-	unsigned char* texture_data;
+
+	unsigned char *texture_data;
 	int slot;
 
 	Texture()
-		:slot(slot_no++)
-	{};
+		: slot(slot_no++){};
 
 	bool load_texture(std::string file_path)
 	{
@@ -30,9 +29,9 @@ public:
 			glGenTextures(1, &textureID);
 			glBindTexture(GL_TEXTURE_2D, textureID);
 
-			glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-			glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-			glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture_data);
 			glGenerateMipmap(GL_TEXTURE_2D);
@@ -40,14 +39,12 @@ public:
 			stbi_image_free(texture_data);
 
 			return true;
-
 		}
 		else
 		{
-			std::cout<<"Error :: error opening file at location || "<<file_path<<std::endl;
+			std::cout << "Error :: error opening file at location || " << file_path << std::endl;
 			return false;
 		}
-		
 	}
 	void bind_texture()
 	{
@@ -58,5 +55,4 @@ public:
 	{
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
-
 };

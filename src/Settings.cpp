@@ -9,14 +9,13 @@ namespace Settings
 	float FOV = 45.0f;
 
 	float camera_sensitivity = 0.075f;
-	int chunk_size = 32;
+	int chunk_size = 1;
 
 	int chunk_vol = chunk_size * chunk_size * chunk_size;
 
-	int world_width = 10;
-	int world_height = 3;
-	extern int world_depth;
-	int world_depth = 10;
+	int world_width = 1;
+	int world_height = 1;
+	int world_depth = 1;
 
 	int chunk_id = 1;
 

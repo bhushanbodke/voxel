@@ -18,5 +18,5 @@ void main()
     texture_color *= color;
     texture_color = pow(texture_color ,inv_gamma);
 
-    FragColor =  vec4(texture_color,1.0f);
+    FragColor =  vec4(0.5,0.5,0.25,1.0f);
 }

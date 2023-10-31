@@ -25,7 +25,7 @@ public:
 		world_center.y = Settings::world_height * Settings::chunk_size / 2;
 		world_center.z = Settings::world_depth * Settings::chunk_size / 2;
 		player.Init(world_center, 5.0f);
-		cube_border.load_texture("assets/frame.png");
+		cube_border.load_texture("assets/block.png");
 	}
 
 	void render(float delta_time)
