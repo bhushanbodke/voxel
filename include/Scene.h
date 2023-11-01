@@ -15,6 +15,7 @@ public:
 	Shader shader;
 	Player player;
 	Texture cube_border;
+	glm::vec3 light_pos;
 
 	void Init()
 	{
@@ -25,13 +26,15 @@ public:
 		world_center.y = Settings::world_height * Settings::chunk_size / 2;
 		world_center.z = Settings::world_depth * Settings::chunk_size / 2;
 		player.Init(world_center, 5.0f);
-		cube_border.load_texture("assets/block.png");
+		cube_border.load_texture("assets/frame.png");
+		light_pos = glm::vec3(world_center.x, Settings::world_height + 5, world_center.z);
 	}
 
 	void render(float delta_time)
 	{
 		cube_border.bind_texture();
 		shader.set_texture_uniform(cube_border);
+		shader.set_uniform_vec3("light_pos", light_pos);
 		world.render(shader, player);
 		player.update(delta_time);
 	}

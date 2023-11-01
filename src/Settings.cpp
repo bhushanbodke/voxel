@@ -9,7 +9,7 @@ namespace Settings
 	float FOV = 45.0f;
 
 	float camera_sensitivity = 0.075f;
-	int chunk_size = 1;
+	int chunk_size = 2;
 
 	int chunk_vol = chunk_size * chunk_size * chunk_size;
 

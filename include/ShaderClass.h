@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include"glad/glad.h"
+#include "glad/glad.h"
 #include <sstream>
 #include <fstream>
 #include <iostream>
@@ -12,21 +12,22 @@ class Shader
 {
 public:
 	GLuint shader_ID;
+
 public:
-	Shader():shader_ID(0) {};
+	Shader() : shader_ID(0){};
 
 	bool SetShader(std::string name)
 	{
 
-		std::string vertexShaderSource = load_string("shaders/"+name+".vert");
+		std::string vertexShaderSource = load_string("shaders/" + name + ".vert");
 		std::string fragmentShaderSource = load_string("shaders/" + name + ".frag");
 
-		const char* vert_shader_source = vertexShaderSource.c_str();
-		const char* frag_shader_source = fragmentShaderSource.c_str();
+		const char *vert_shader_source = vertexShaderSource.c_str();
+		const char *frag_shader_source = fragmentShaderSource.c_str();
 
 		unsigned int vertexShader = compile_shader(vert_shader_source, GL_VERTEX_SHADER);
 		unsigned int fragmentShader = compile_shader(frag_shader_source, GL_FRAGMENT_SHADER);
-		
+
 		int success;
 		char infoLog[512];
 		shader_ID = glCreateProgram();
@@ -35,9 +36,11 @@ public:
 		glLinkProgram(shader_ID);
 		// check for linking errors
 		glGetProgramiv(shader_ID, GL_LINK_STATUS, &success);
-		if (!success) {
+		if (!success)
+		{
 			glGetProgramInfoLog(shader_ID, 512, NULL, infoLog);
-			std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
+			std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n"
+					  << infoLog << std::endl;
 		}
 		glDeleteShader(vertexShader);
 		glDeleteShader(fragmentShader);
@@ -53,17 +56,21 @@ public:
 	{
 		glUniformMatrix4fv(glGetUniformLocation(shader_ID, name.c_str()), 1, GL_FALSE, &matrix[0][0]);
 	};
-	inline void set_uniform_int(std::string name , int val)
+	inline void set_uniform_int(std::string name, int val)
 	{
 		glUniform1i(glGetUniformLocation(shader_ID, name.c_str()), val);
 	}
-	inline void set_texture_uniform(Texture & texture)
+	inline void set_texture_uniform(Texture &texture)
 	{
 		glUniform1i(glGetUniformLocation(shader_ID, "Texture" + texture.slot), texture.slot);
 	}
+	inline void set_uniform_vec3(std::string name, glm::vec3 v)
+	{
+		glUniform3f(glGetUniformLocation(shader_ID, name.c_str()), v.x, v.y, v.z);
+	}
 
 private:
-	GLuint compile_shader(const char* shader_string, GLuint type)
+	GLuint compile_shader(const char *shader_string, GLuint type)
 	{
 		int success;
 		char infolog[512];
@@ -75,7 +82,8 @@ private:
 		if (!success)
 		{
 			glGetShaderInfoLog(shader, 512, NULL, infolog);
-			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infolog << std::endl;
+			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n"
+					  << infolog << std::endl;
 		}
 		return shader;
 	};

@@ -43,7 +43,7 @@ public:
 		{
 			set_deltatime();
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			glClearColor(0, 0, 0, 1.0);
+			glClearColor(1.0f, 1.0f, 1.0f, 1.0);
 			scene.render(delta_time);
 			window.PollEvents();
 			window.Swapbuffer();
