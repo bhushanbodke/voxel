@@ -1,14 +1,11 @@
 #version 330 core
 layout (location = 0) in vec3 aPos;
 layout (location = 1) in vec2 texture_co;
-layout (location = 2 ) in vec3 normals;
-layout (location = 3) in float Voxel_id;
-layout (location = 4) in float Face_Id;
+layout (location = 2) in float Voxel_id;
+layout (location = 3) in float Face_Id;
 
 out vec2 text_co;
 out vec3 color;
-out vec3 Frag_pos;
-out vec3 normal ;
 
 uniform mat4 MVP;
 
@@ -21,10 +18,7 @@ vec3 hash(float p )
 
 void main()
 {
-    color  = hash(Voxel_id);
-    text_co = texture_co;
-    Frag_pos = aPos;
-    normal = normals;
-
-    gl_Position = MVP *  vec4(aPos, 1.0);
+   color  = hash(Voxel_id);
+   text_co = texture_co;
+   gl_Position = MVP *  vec4(aPos, 1.0);
 };

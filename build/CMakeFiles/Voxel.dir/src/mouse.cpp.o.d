@@ -2,8 +2,8 @@ CMakeFiles/Voxel.dir/src/mouse.cpp.o: \
  /home/bhushan/Desktop/voxel/src/mouse.cpp /usr/include/stdc-predef.h \
  /home/bhushan/Desktop/voxel/include/mouse.h \
  /home/bhushan/Desktop/voxel/include/GLFW/glfw3.h \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \

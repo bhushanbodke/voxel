@@ -19,7 +19,6 @@ struct Vertex
 {
 	glm::vec3 positions;
 	glm::vec2 texture_co;
-	glm::vec3 normals;
 	float voxel_id;
 	float face_id;
 };
@@ -83,15 +82,13 @@ public:
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
 
 		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 10 * sizeof(float), (void *)0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void *)0);
 		glEnableVertexAttribArray(1);
-		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 10 * sizeof(float), (void *)(3 * sizeof(float)));
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void *)(3 * sizeof(float)));
 		glEnableVertexAttribArray(2);
-		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 10 * sizeof(float), (void *)(5 * sizeof(float)));
-		glEnableVertexAttribArray(3);
-		glVertexAttribPointer(3, 1, GL_FLOAT, GL_FALSE, 10 * sizeof(float), (void *)(8 * sizeof(float)));
+		glVertexAttribPointer(2, 1, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void *)(5 * sizeof(float)));
 		glEnableVertexAttribArray(4);
-		glVertexAttribPointer(4, 1, GL_FLOAT, GL_FALSE, 10 * sizeof(float), (void *)(9 * sizeof(float)));
+		glVertexAttribPointer(3, 1, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void *)(6 * sizeof(float)));
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
@@ -137,10 +134,10 @@ public:
 					if (should_render_face(x, y, z - 1))
 					{
 						glm::vec3 normal = glm::vec3(0.0f, 0.0f, 1.0f);
-						unsigned int v1 = push_back({{x, y, z}, {0.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v2 = push_back({{x + 1, y, z}, {1.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v3 = push_back({{x + 1, y + 1, z}, {1.0f, 1.0f}, normal, voxel_id, face_id});
-						unsigned int v4 = push_back({{x, y + 1, z}, {0.0f, 1.0f}, normal, voxel_id, face_id});
+						unsigned int v1 = push_back({{x, y, z}, {0.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v2 = push_back({{x + 1, y, z}, {1.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v3 = push_back({{x + 1, y + 1, z}, {1.0f, 1.0f}, voxel_id, face_id});
+						unsigned int v4 = push_back({{x, y + 1, z}, {0.0f, 1.0f}, voxel_id, face_id});
 
 						indices.insert(indices.end(), {v1, v2, v3, v1, v3, v4});
 					}
@@ -150,10 +147,10 @@ public:
 					{
 						glm::vec3 normal = glm::vec3(0.0f, 0.0f, -1.0f);
 
-						unsigned int v1 = push_back({{x, y, z + 1}, {0.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v2 = push_back({{x + 1, y, z + 1}, {1.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v3 = push_back({{x + 1, y + 1, z + 1}, {1.0f, 1.0f}, normal, voxel_id, face_id});
-						unsigned int v4 = push_back({{x, y + 1, z + 1}, {0.0f, 1.0f}, normal, voxel_id, face_id});
+						unsigned int v1 = push_back({{x, y, z + 1}, {0.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v2 = push_back({{x + 1, y, z + 1}, {1.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v3 = push_back({{x + 1, y + 1, z + 1}, {1.0f, 1.0f}, voxel_id, face_id});
+						unsigned int v4 = push_back({{x, y + 1, z + 1}, {0.0f, 1.0f}, voxel_id, face_id});
 
 						indices.insert(indices.end(), {v1, v2, v3, v1, v3, v4});
 					}
@@ -163,10 +160,10 @@ public:
 					{
 						glm::vec3 normal = glm::vec3(1.0f, 0.0f, 0.0f);
 
-						unsigned int v1 = push_back({{x + 1, y, z}, {0.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v2 = push_back({{x + 1, y, z + 1}, {1.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v3 = push_back({{x + 1, y + 1, z + 1}, {1.0f, 1.0f}, normal, voxel_id, face_id});
-						unsigned int v4 = push_back({{x + 1, y + 1, z}, {0.0f, 1.0f}, normal, voxel_id, face_id});
+						unsigned int v1 = push_back({{x + 1, y, z}, {0.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v2 = push_back({{x + 1, y, z + 1}, {1.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v3 = push_back({{x + 1, y + 1, z + 1}, {1.0f, 1.0f}, voxel_id, face_id});
+						unsigned int v4 = push_back({{x + 1, y + 1, z}, {0.0f, 1.0f}, voxel_id, face_id});
 
 						indices.insert(indices.end(), {v1, v2, v3, v3, v4, v1});
 					}
@@ -176,10 +173,10 @@ public:
 					{
 						glm::vec3 normal = glm::vec3(-1.0f, 0.0f, 0.0f);
 
-						unsigned int v1 = push_back({{x, y, z}, {0.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v2 = push_back({{x, y, z + 1}, {1.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v3 = push_back({{x, y + 1, z + 1}, {1.0f, 1.0f}, normal, voxel_id, face_id});
-						unsigned int v4 = push_back({{x, y + 1, z}, {0.0f, 1.0f}, normal, voxel_id, face_id});
+						unsigned int v1 = push_back({{x, y, z}, {0.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v2 = push_back({{x, y, z + 1}, {1.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v3 = push_back({{x, y + 1, z + 1}, {1.0f, 1.0f}, voxel_id, face_id});
+						unsigned int v4 = push_back({{x, y + 1, z}, {0.0f, 1.0f}, voxel_id, face_id});
 
 						indices.insert(indices.end(), {v1, v2, v3, v3, v4, v1});
 					}
@@ -189,10 +186,10 @@ public:
 					{
 						glm::vec3 normal = glm::vec3(0.0f, 1.0f, 0.0f);
 
-						unsigned int v1 = push_back({{x, y + 1, z}, {0.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v2 = push_back({{x + 1, y + 1, z}, {1.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v3 = push_back({{x + 1, y + 1, z + 1}, {1.0f, 1.0f}, normal, voxel_id, face_id});
-						unsigned int v4 = push_back({{x, y + 1, z + 1}, {0.0f, 1.0f}, normal, voxel_id, face_id});
+						unsigned int v1 = push_back({{x, y + 1, z}, {0.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v2 = push_back({{x + 1, y + 1, z}, {1.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v3 = push_back({{x + 1, y + 1, z + 1}, {1.0f, 1.0f}, voxel_id, face_id});
+						unsigned int v4 = push_back({{x, y + 1, z + 1}, {0.0f, 1.0f}, voxel_id, face_id});
 
 						indices.insert(indices.end(), {v1, v2, v3, v1, v3, v4}); // Fix the order
 					}
@@ -202,10 +199,10 @@ public:
 					{
 						glm::vec3 normal = glm::vec3(0.0f, -1.0f, 0.0f);
 
-						unsigned int v1 = push_back({{x, y, z + 1}, {0.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v2 = push_back({{x + 1, y, z + 1}, {1.0f, 0.0f}, normal, voxel_id, face_id});
-						unsigned int v3 = push_back({{x + 1, y, z}, {1.0f, 1.0f}, normal, voxel_id, face_id});
-						unsigned int v4 = push_back({{x, y, z}, {0.0f, 1.0f}, normal, voxel_id, face_id});
+						unsigned int v1 = push_back({{x, y, z + 1}, {0.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v2 = push_back({{x + 1, y, z + 1}, {1.0f, 0.0f}, voxel_id, face_id});
+						unsigned int v3 = push_back({{x + 1, y, z}, {1.0f, 1.0f}, voxel_id, face_id});
+						unsigned int v4 = push_back({{x, y, z}, {0.0f, 1.0f}, voxel_id, face_id});
 
 						indices.insert(indices.end(), {v1, v2, v3, v3, v4, v1}); // Fix the order
 					}
